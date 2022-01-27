@@ -1,0 +1,28 @@
+read -p "Enter a number: " year
+if [ $year -gt 0 ]
+then
+  if [ $((year%4)) -eq 0 ]
+  then
+    if [ $((year%100)) -eq 0 ]
+    then
+      if [ $((year%400)) -eq 0 ]
+      then
+        leap=1
+      else
+        leap=0
+      fi
+    else
+      leap=1
+    fi
+  else
+    leap=0
+  fi
+  if [ $leap -eq 1 ]
+  then
+    echo "$year is a leap year."
+  else
+    echo "$year is not a leap year."
+  fi
+else
+  echo "Please provide a positive value."
+fi
